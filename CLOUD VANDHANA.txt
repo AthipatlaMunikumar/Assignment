@@ -1,0 +1,402 @@
+JAVA
+1)import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        // Create the array
+        List<Integer> originalArray = new ArrayList<>();
+        originalArray.add(1);
+        originalArray.add(2);
+        originalArray.add(3);
+        originalArray.add(4);
+        originalArray.add(5);
+        originalArray.add(6);
+        originalArray.add(7);
+
+        // Shuffle the array
+        Collections.shuffle(originalArray);
+
+        // Now, originalArray contains the values shuffled randomly
+        System.out.println(originalArray);
+    }
+}
+
+
+2)import java.util.HashMap;
+
+public class RomanToInteger {
+    public static int romanToInt(String s) {
+        HashMap<Character, Integer> romanValues = new HashMap<>();
+        romanValues.put('I', 1);
+        romanValues.put('V', 5);
+        romanValues.put('X', 10);
+        romanValues.put('L', 50);
+        romanValues.put('C', 100);
+        romanValues.put('D', 500);
+        romanValues.put('M', 1000);
+
+        int result = 0;
+        int prevValue = 0;
+
+        for (int i = s.length() - 1; i >= 0; i--) {
+            int currentValue = romanValues.get(s.charAt(i));
+
+            if (currentValue < prevValue) {
+                result -= currentValue;
+            } else {
+                result += currentValue;
+            }
+
+            prevValue = currentValue;
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        String romanNumeral = "IX"; // Replace this with your Roman numeral
+        int intValue = romanToInt(romanNumeral);
+        System.out.println("The integer value of " + romanNumeral + " is " + intValue);
+    }
+}
+
+
+3)public class PangramChecker {
+    public static boolean isPangram(String str) {
+   
+        boolean[] alphabetPresent = new boolean[26];
+        
+       
+        str = str.toLowerCase();
+        
+
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if (c >= 'a' && c <= 'z') {
+                alphabetPresent[c - 'a'] = true;
+            }
+        }
+        
+
+        for (boolean present : alphabetPresent) {
+            if (!present) {
+                return false; 
+            }
+        }
+        
+        return true; 
+    }
+
+    public static void main(String[] args) {
+        String input = "The quick brown fox jumps over the lazy dog";
+        boolean isPangram = isPangram(input);
+        
+        if (isPangram) {
+            System.out.println("The input is a pangram.");
+        } else {
+            System.out.println("The input is not a pangram.");
+        }
+    }
+
+
+
+
+JAVASCRIPT
+
+1)function reverseWords(sentence) {
+    
+    let words = sentence.split(' ');
+
+
+    let reversedWords = words.map(word => {
+        return word.split('').reverse().join('');
+    });
+
+    let reversedSentence = reversedWords.join(' ');
+
+    return reversedSentence;
+}
+
+
+let inputSentence = "This is a sunny day";
+
+let reversedSentence = reverseWords(inputSentence);
+
+console.log(reversedSentence); 
+
+
+2)const arrayToSort = [56, 89, 12, 43, 67];
+const sortedArray = arrayToSort.sort((a, b) => b - a);
+
+console.log(sortedArray);
+
+
+HTML
+
+
+1)<!DOCTYPE html> 
+<html> 
+
+<head> 
+	<title>HTML Calculator</title> 
+
+	<!-- For styling -->
+	<style> 
+		table { 
+			border: 1px solid black; 
+			margin-left: auto; 
+			margin-right: auto; 
+		} 
+		
+		input[type="button"] { 
+			width: 100%; 
+			padding: 20px 40px; 
+			background-color: black; 
+			color: white; 
+			font-size: 24px; 
+			font-weight: bold; 
+			border: none; 
+			border-radius: 5px; 
+		} 
+		
+		input[type="text"] { 
+			padding: 20px 30px; 
+			font-size: 24px; 
+			font-weight: bold; 
+			border: none; 
+			border-radius: 5px; 
+			border: 2px solid black; 
+		} 
+	</style> 
+</head> 
+
+<body> 
+
+	<!-- Create table -->
+	<table id="calcu"> 
+		<tr> 
+			<td colspan="3"> 
+				<input type="text" id="result"> 
+			</td> 
+            
+			<td><input type="button" value="AC" style="background-color: green;"></td> 
+		</tr> 
+
+		<tr> 
+			<td><input type="button" value="9"></td> 
+			<td><input type="button" value="8"></td> 
+			<td><input type="button" value="7"></td> 
+			<td><input type="button" value="+" style="background-color: gray;"></td> 
+		</tr> 
+		<tr> 
+			<td><input type="button" value="4"></td> 
+			<td><input type="button" value="5"></td> 
+			<td><input type="button" value="6"></td> 
+			<td><input type="button" value="-" style="background-color: gray;"></td> 
+		</tr> 
+		<tr> 
+			<td><input type="button" value="1"></td> 
+			<td><input type="button" value="2"></td> 
+			<td><input type="button" value="3"></td> 
+			<td><input type="button" value="/" style="background-color: gray;"></td> 
+		</tr> 
+		<tr> 
+			<td><input type="button" value="."></td> 
+			<td><input type="button" value="0"></td> 
+			<td><input type="button" value="="></td> 
+			<td><input type="button" value="*" style="background-color: gray;"></td> 
+		</tr> 
+	</table> 
+</body> 
+
+</html>
+
+
+
+2)<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>
+		Build a Survey Form using HTML and CSS
+	</title>
+
+	<style>
+
+		/* Styling the Body element i.e. Color, 
+		Font, Alignment */ 
+		body {
+			background-color: rgb(15, 153, 221);
+			font-family: Verdana;
+			text-align: center;
+		}
+
+		/* Styling the Form (Color, Padding, Shadow) */
+		form {
+			background-color: #fff;
+			max-width: 500px;
+			margin: 50px auto;
+			padding: 30px 20px;
+			box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+		}
+
+		/* Styling form-control Class */
+		.form-control {
+			text-align: left;
+			margin-bottom: 25px;
+		}
+
+		/* Styling form-control Label */ 
+		.form-control label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		/* Styling form-control input, 
+		select, textarea */
+		.form-control input,
+		.form-control select,
+		.form-control textarea {
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			padding: 10px;
+			display: block;
+			width: 95%;
+		}
+
+		/* Styling form-control Radio 
+		button and Checkbox */
+		.form-control input[type="radio"],
+		.form-control input[type="checkbox"] {
+			display: inline-block;
+			width: auto;
+		}
+
+		/* Styling Button */
+		button {
+			background-color: blue;
+            color:white;
+			border: 1px solid #777;
+			border-radius: 1px;
+			font-family: inherit;
+			font-size: 21px;
+			display: block;
+			width: 50%;
+			margin-top: 50px;
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 style="color: white;">Customer Survey Form</h1>
+
+	<!-- Create Form -->
+	<form id="form">
+
+		<!-- Details -->
+		<div class="form-control">
+			<label for="name" id="label-name">
+				Name
+			</label>
+
+			<!-- Input Type Text -->
+            
+			    <input type="text"
+				id="name"
+				placeholder="Enter your name" /></td>
+		
+
+		    
+			  <label> <for="email" id="label-email">
+				Email
+            
+			</label>
+            
+            
+
+			<!-- Input Type Email-->
+			<input type="email"
+				id="email"
+				placeholder="Enter your email" />
+		</div>
+
+		<div class="form-control">
+			<label>
+				Is this first time your using our product & service?
+			</label>
+
+			<!-- Input Type Radio Button -->
+			<label for="recommed-1">
+				<input type="radio"
+					id="recommed-1"
+					name="recommed">Yes</input>
+			
+			 
+				<input type="radio"
+					id="recommed-2"
+					name="recommed">No</input>
+			</label>
+		</div>
+
+		<div class="form-control">
+			<label>Would you suggestions to your friends and colleague? 
+				
+			</label>
+			<!-- Input Type Checkbox -->
+			<label for="recommed-1">
+				<input type="radio"
+					id="recommed-1"
+					name="recommed">Yes</input>
+			
+			 
+				<input type="radio"
+					id="recommed-2"
+					name="recommed">No</input>
+			</label>
+		</div>
+        <div class="form-control">
+			<label>How satisfied are you with our company overall?
+				
+			</label>
+			<!-- Input Type Checkbox -->
+			<label for="recommed-1">
+				<input type="radio"
+					id="recommed-1"
+					name="recommed">Satisfied</input>
+			
+			 
+				<input type="radio"
+					id="recommed-2"
+					name="recommed">Undecided</input>
+                <input type="radio"
+					id="recommed-2"
+					name="recommed">Unsatisfied</input>
+			</label>
+		</div>
+
+		<div class="form-control">
+			<label for="comment">
+				Do you have suggestion to improve our service?
+			</label>
+
+			<!-- multi-line text input control -->
+			<textarea name="comment" id="comment"
+				placeholder="Enter your comment here">
+			</textarea>
+		</div>
+
+		<!-- Multi-line Text Input Control -->
+		<button type="SUBMIT" value="SUBMIT">
+			SUBMIT
+		</button>
+	</form>
+</body>
+</html>
